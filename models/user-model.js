@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017/scatch");
+// mongoose.connect("mongodb://127.0.0.1:27017/scatch");
 
 const userSchema = mongoose.Schema({
   fullname: {
@@ -14,7 +14,6 @@ const userSchema = mongoose.Schema({
     type: Array,
     default: [],
   },
-  isadmin: Boolean,
   orders: {
     type: Array,
     default: [],
@@ -23,4 +22,4 @@ const userSchema = mongoose.Schema({
   picture: String,
 });
 
-module.exports = mongoose.model("user", userSchema);
+const user = mongoose.models.User || mongoose.model('user', userSchema);
